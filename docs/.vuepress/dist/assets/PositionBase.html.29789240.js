@@ -1,0 +1,1 @@
+const e={key:"v-6c97892c",path:"/Code/CSS/PositionBase.html",title:"\u5B9A\u4F4D",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u666E\u901A\u6D41\u5B9A\u4F4D",slug:"\u666E\u901A\u6D41\u5B9A\u4F4D",children:[]}],git:{},filePathRelative:"Code/CSS/PositionBase.md"};export{e as data};

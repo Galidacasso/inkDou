@@ -1,0 +1,1 @@
+const e={key:"v-546e9b17",path:"/Code/AJAX/%E6%8E%92%E9%94%99.html",title:"\u6392\u9519",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u6253\u6869\u6CD5",slug:"\u6253\u6869\u6CD5",children:[]},{level:2,title:"\u62A5\u9519\u4FE1\u606F",slug:"\u62A5\u9519\u4FE1\u606F",children:[]}],git:{},filePathRelative:"Code/AJAX/\u6392\u9519.md"};export{e as data};

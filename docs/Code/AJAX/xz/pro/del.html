@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除页面</title>
+</head>
+<body>
+    请输入用户ID：<input type="text" id="uid"><br>
+    <button onclick="delUser()">删除用户</button>
+    <script>
+        function delUser(){
+            let xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4 && xhr.status===200){
+                    let res=xhr.responseText;
+                    console.log(res,typeof res);
+                    if(res=="1"){
+                        alert('删除成功');
+                    }else{
+                        alert('删除失败');
+                    }
+                }
+            }
+            let $uid=uid.value;
+            xhr.open('delete',`/pro/v1/deluser/${$uid}`,true);
+            xhr.send();
+        }
+    </script>
+</body>
+</html>

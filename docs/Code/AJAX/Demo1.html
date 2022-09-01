@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    用户名: <input type="text" onfocus="show()" onblur="check()" id="uname">
+    <span id="msg"></span>
+
+    <script>
+        // <!-- 获取焦点时提示请输入6到10位用户名长度 -->
+        function show() {
+            msg.innerHTML = '请输入用户名6到10位';
+        }
+
+        // <!-- 失去焦点检查一下格式是否正确 -->
+        function check() {
+            // 获取input的值
+            let str = uname.value;
+
+            if (str.length == 0) {
+                msg.innerHTML = '用户名不能为空';
+            }else if(str.length >=6 && str.length <=10){
+                msg.innerHTML = '正确可以使用';
+            }else{
+                msg.innerHTML = '格式错误~';
+            }
+        }
+    </script>
+</body>
+
+</html>

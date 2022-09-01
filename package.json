@@ -1,0 +1,27 @@
+{
+  "name": "inkdou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lru-cache": "^7.10.10",
+    "@vue/component-compiler-utils": "^3.3.0",
+    "@vuepress/plugin-search": "^2.0.0-beta.49",
+    "@vuepress/plugin-shiki": "^2.0.0-beta.5",
+    "@vuepress/shared-utils": "^1.9.7",
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-plugin-demo-container": "^0.2.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "bootstrap-vue": "^2.22.0",
+    "vue": "^3.2.37"
+  }
+}

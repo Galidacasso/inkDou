@@ -1,0 +1,1 @@
+const e={key:"v-1acaad64",path:"/Code/JS/Boolean.html",title:"Boolean\u5BF9\u8C61",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u521B\u5EFA",slug:"\u521B\u5EFA",children:[]},{level:2,title:"API",slug:"api",children:[]}],git:{},filePathRelative:"Code/JS/Boolean.md"};export{e as data};

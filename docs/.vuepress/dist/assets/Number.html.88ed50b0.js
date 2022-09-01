@@ -1,0 +1,1 @@
+const e={key:"v-80e1b01a",path:"/Code/JS/Number.html",title:"Number\u5BF9\u8C61",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[{level:2,title:"\u521B\u5EFA",slug:"\u521B\u5EFA",children:[]},{level:2,title:"API",slug:"api",children:[]}],git:{},filePathRelative:"Code/JS/Number.md"};export{e as data};

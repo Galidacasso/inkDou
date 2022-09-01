@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>用户列表</title>
+</head>
+<body onload="userlist()">
+    <div id="main"></div>
+    <script>
+        //删除用户
+        function delUser(uid){
+            let xhr=new XMLHttpRequest();
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4 && xhr.status===200){
+                    let res=xhr.responseText;
+                    console.log(res,typeof res);
+                    if(res=="1"){
+                        alert('删除成功');
+                        userlist();//删除成功后，刷新用户列表
+                    }else{
+                        alert('删除失败');
+                    }
+                }
+            }
+            //let $uid=uid.value;
+            xhr.open('delete',`/pro/v1/deluser/${uid}`,true);
+            xhr.send();
+        }
+        //用户列表加载
+        function userlist(){
+           //1.创建异步对象
+           let xhr=new XMLHttpRequest();
+           //2.绑定监听
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState===4 && xhr.status===200){
+                    let res=xhr.responseText;//字符串
+                    console.log(typeof res);
+                    //解析JSON串，将JSON串转换成JS数组或对象的格式
+                    let arr=JSON.parse(res);
+                    //拼接表格
+                    let str=`
+                       <table border="1px" width="600px" align="center">
+                           <tr>
+                              <th>用户名称</th> 
+                              <th>用户邮箱</th> 
+                              <th>用户电话</th> 
+                              <th>真实姓名</th> 
+                              <th>用户性别</th> 
+                              <th>用户操作</th> 
+                           </tr> 
+                       
+                    `;
+                    //在循环体中取出用户数据并拼接表主体
+                    for(var i in arr){
+                        //处理性别的显示方式
+                        let sex="保密";
+                        if(arr[i].gender==1){
+                            sex="男";
+                        }else if(arr[i].gender==0){
+                            sex="女";
+                        }else{
+                            sex="保密";
+                        }
+                        //处理真实姓名的显示方式
+                        let userName=arr[i].user_name;
+                        if(arr[i].user_name==null){
+                            userName="不详";
+                        }
+                        str+=`
+                            <tr>
+                               <td>${arr[i].uname}</td>
+                               <td>${arr[i].email}</td>
+                               <td>${arr[i].phone}</td>
+                               <td>${userName}</td>
+                               <td>${sex}</td>
+                               <td>
+                                   <a href="04_pro_update.html?uid=${arr[i].uid}">修改</a> 
+                                   <a href="javascript:delUser(${arr[i].uid})">删除</a> 
+                               </td>
+                            </tr>
+                        `;
+                    }
+                    str+=`</table>`;
+                    main.innerHTML=str;
+                }
+            }
+           //3.创建请求
+            xhr.open('get','/ajax/list',true);
+           //4.发送请求 
+           xhr.send();
+        }
+    </script>
+</body>
+</html>

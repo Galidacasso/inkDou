@@ -1,0 +1,68 @@
+export const data = {
+  "key": "v-0c2b7454",
+  "path": "/Code/JS/ES6%E6%96%B0%E7%89%B9%E6%80%A7.html",
+  "title": "ES6新特性",
+  "lang": "zh-CN",
+  "frontmatter": {},
+  "excerpt": "",
+  "headers": [
+    {
+      "level": 3,
+      "title": "块级作用域",
+      "slug": "块级作用域",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "函数增强",
+      "slug": "函数增强",
+      "children": []
+    },
+    {
+      "level": 2,
+      "title": "箭头函数",
+      "slug": "箭头函数",
+      "children": [
+        {
+          "level": 3,
+          "title": "函数无参数",
+          "slug": "函数无参数",
+          "children": []
+        },
+        {
+          "level": 3,
+          "title": "函数有1个参数",
+          "slug": "函数有1个参数",
+          "children": []
+        },
+        {
+          "level": 3,
+          "title": "函数有多个参数",
+          "slug": "函数有多个参数",
+          "children": []
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "title": "模板化字符串",
+      "slug": "模板化字符串",
+      "children": []
+    }
+  ],
+  "git": {},
+  "filePathRelative": "Code/JS/ES6新特性.md"
+}
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}

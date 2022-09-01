@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页面</title>
+</head>
+<body>
+    <p>用户名称:<input type="text" id="uname" onfocus="show_uname()" onblur="check_uname()"><span id="uname_msg"></span></p>
+    <p>用户密码:<input type="password" id="upwd" onfocus="show_upwd()" onblur="check_upwd()"><span id="upwd_msg"></span></p>
+    <p><button onclick="pro_login()">登录</button></p>
+    <script>
+        let isUname=false;//表示用户名称是否正确
+        let isUpwd=false;//表示用户密码是否正确
+        //获取焦点的提示
+        function show_uname(){
+            uname_msg.innerHTML="请输入用户名称3-12位！";
+        }
+        function show_upwd(){
+            upwd_msg.innerHTML="请输入用户密码6-18位！";
+        }
+        //失去焦点的验证
+        function check_uname(){
+            let $uname=uname.value;
+            if(!$uname){
+                uname_msg.innerHTML="× 用户名称不能为空";
+                isUname=false;
+            }else{
+                if($uname.length>=3 && $uname.length<=12){
+                    uname_msg.innerHTML="√ 用户名称正确！"
+                    isUname=true;
+                }else{
+                    uname_msg.innerHTML="× 用户名称长度有误！"
+                    isUname=false;
+                }
+            }
+        }
+        function check_upwd(){
+            let $upwd=upwd.value;
+            if(!$upwd){
+                upwd_msg.innerHTML="× 用户密码不能为空";
+                isUpwd=false;
+            }else{
+                if($upwd.length>=6 && $upwd.length<=18){
+                    upwd_msg.innerHTML="√ 用户密码正确！"
+                    isUpwd=true;
+                }else{
+                    upwd_msg.innerHTML="× 用户密码长度有误！"
+                    isUpwd=false;
+                }
+            }
+        }
+        //发送ajax请求，完成登录
+        function pro_login(){
+            if(isUname && isUpwd){
+               let xhr=new XMLHttpRequest();
+               xhr.onreadystatechange=function(){
+                   if(xhr.readyState===4 && xhr.status===200){
+                       let res=xhr.responseText;
+                       if(res=="1"){
+                           alert('登录成功');
+                       }else{
+                           alert('登录失败');
+                       }
+                   }
+               }
+               let $uname=uname.value;
+               let $upwd=upwd.value;
+               xhr.open('get',`/pro/v1/login/${$uname}&${$upwd}`,true);
+               xhr.send();
+            }else{
+                alert('登录数据有误');
+            }
+        }
+    </script>
+</body>
+</html>

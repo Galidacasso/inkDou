@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    用户名:
+    <input type="text" onfocus="uname_show()" onblur="uname_check()" id="uname">
+    <span id="uname_msg"></span>
+    <br>
+
+    密码:
+    <input type="text" onfocus="pwd_show()" onblur="pwd_check()" id="upwd">
+    <span id="pwd_msg"></span>
+    <br>
+
+    确认密码:
+    <input type="text" onfocus="repwd_show()" onblur="repwd_check()" id="repwd">
+    <span id="repwd_msg"></span>
+    <br>
+
+    <button onclick="reg()">注册</button>
+    <script>
+        // 声明全局标识变量,标识格式是否正确
+        var a = false;
+        var b = false;
+        var c = false;
+
+        // 用户提示与验证
+        function uname_show() {
+            uname_msg.innerHTML = '请输入用户名6到10位';
+        }
+
+        function uname_check() {
+            // 获取input的值
+            let str = uname.value;
+
+            if (str.length == 0) {
+                uname_msg.innerHTML = '用户名不能为空';
+                a = false;
+            } else if (str.length >= 6 && str.length <= 10) {
+                uname_msg.innerHTML = '正确可以使用';
+                a = true;
+
+            } else {
+                uname_msg.innerHTML = '格式错误~';
+                a = false;
+            }
+        }
+
+        // 密码提示与验证
+        function pwd_show() {
+            pwd_msg.innerHTML = '请输入6到10位密码';
+        }
+
+        function pwd_check() {
+            // 获取input的值
+            let str = upwd.value;
+
+            if (str.length == 0) {
+                pwd_msg.innerHTML = '用户名密码不能为空';
+                b = false;
+            } else if (str.length >= 6 && str.length <= 10) {
+                pwd_msg.innerHTML = '正确可以使用';
+                b = true;
+            } else {
+                pwd_msg.innerHTML = '格式错误~';
+                b = false;
+            }
+        }
+
+        // 确认密码提示与验证
+        function repwd_show() {
+            repwd_msg.innerHTML = '请输入确认密码';
+        }
+
+        function repwd_check() {
+            // 密码和确认密码一致
+            if (upwd.value == repwd.value) {
+                repwd_msg.innerHTML = '两次密码一致';
+                c = true;
+
+            } else {
+                repwd_msg.innerHTML = '请输入相同的密码';
+                c = false;
+            }
+        }
+
+        // 注册按钮单击事件
+        function reg() {
+            if (a && b && c) {
+                alert("注册成功~~");
+            } else {
+                alert("注册失败~~");
+            }
+        }
+    </script>
+</body>
+
+</html>
